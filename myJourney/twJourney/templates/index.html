@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Learning Journey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        h1, h2 { color: #2c3e50; }
+        a {
+            text-decoration: none;
+            background: #2980b9;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        a:hover { background: #1c5980; }
+    </style>
+</head>
+<body>
+
+    <h1> My Learning Journey</h1>
+
+    <p>This semester, I explored Django web framework and learned how to create dynamic web applications using MVT architecture.</p>
+
+    <h2>My Activities</h2>
+    <ul>
+        {% for activity in activities %}
+            <li>
+                <strong>{{ activity.lab_title }}</strong>: {{ activity.description }}
+                (Completed on {{ activity.completion_date }})
+            </li>
+        {% empty %}
+            <li>No activities added yet.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Screenshots from Admin Panel</h2>
+    <img src="/static/images/admin_screenshot.png" alt="Admin Panel Screenshot">
+
+    <p><a href="{% url 'aboutMe' %}">About Me</a></p>
+
+</body>
+</html>

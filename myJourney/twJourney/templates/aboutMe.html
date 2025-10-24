@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef1f6;
+            padding: 20px;
+        }
+        h1, h2 { color: #2c3e50; }
+        a {
+            text-decoration: none;
+            background: #2980b9;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        a:hover { background: #1c5980; }
+    </style>
+</head>
+<body>
+
+    <h1>About {{ student.name }}</h1>
+
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Student ID:</strong> {{ student.studentID }}</p>
+    <p><strong>Age:</strong> {{ student.age }}</p>
+    <p><strong>Education:</strong> {{ student.education }}</p>
+
+    <h2>Hobbies and Interests</h2>
+    <p>{{ student.hobbies }}</p>
+
+    <h2>Future Goals</h2>
+    <p>{{ student.future_goals }}</p>
+
+    <p><a href="{% url 'index' %}">Back to Learning Journey</a></p>
+
+</body>
+</html>
