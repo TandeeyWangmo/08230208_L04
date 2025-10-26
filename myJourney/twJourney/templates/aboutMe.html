@@ -20,6 +20,7 @@
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
             padding: 40px;
+            text-align: center;
         }
 
         /* ---------- Header ---------- */
@@ -35,9 +36,44 @@
             border-left: 5px solid #2e86c1;
             padding-left: 10px;
             margin-top: 30px;
+            text-align: left;
         }
 
-        /* ---------- Text Content ---------- */
+        /* ---------- Profile Image (Main Focus) ---------- */
+        .profile-photo {
+            width: 180px;             /* larger size */
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #ffffff;
+            margin: 30px auto 20px auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.07);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+        }
+
+        /* ---------- Info Card ---------- */
+        .info-card {
+            background: #f7fbff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-top: 20px;
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ---------- Text Styling ---------- */
         p {
             font-size: 1.05em;
             line-height: 1.7;
@@ -46,21 +82,6 @@
 
         strong {
             color: #1f618d;
-        }
-
-        /* ---------- Info Card ---------- */
-        .info-card {
-            background: #f7fbff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-top: 15px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .info-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
         /* ---------- Link/Button ---------- */
@@ -81,6 +102,22 @@
             transform: translateY(-2px);
         }
 
+        /* ---------- Image Styling ---------- */
+        .screenshot {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
         /* ---------- Footer ---------- */
         footer {
             text-align: center;
@@ -95,6 +132,10 @@
     <div class="container">
         <h1>👩‍🎓 About {{ student.name }}</h1>
 
+        <!-- 🖼️ Centered Large Profile Photo (Now Above Info Card) -->
+        <img src="/static/images/Tandin.jpg" alt="Profile Photo" class="profile-photo">
+
+        <!-- Student Information -->
         <div class="info-card">
             <p><strong>Name:</strong> {{ student.name }}</p>
             <p><strong>Student ID:</strong> {{ student.studentID }}</p>
@@ -108,12 +149,15 @@
         <h2>🎯 Future Goals</h2>
         <p>{{ student.future_goals }}</p>
 
+        <h2>Screenshots from Admin Panel</h2>
+        <img src="/static/images/About.png" alt="Admin Panel Screenshot" class="screenshot">
+
         <div style="text-align:center;">
             <a href="{% url 'index' %}">🏠 Back to Learning Journey</a>
         </div>
 
         <footer>
-            <p>© 2025 My Django Journey | Crafted with 💙</p>
+            <p>© 2025 My Learning Journey | Designed by Tandin Wangmo</p>
         </footer>
     </div>
 

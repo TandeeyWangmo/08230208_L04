@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>My Learning Journey</title>
@@ -18,7 +19,7 @@
             margin: 40px auto;
             background: #ffffff;
             border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             padding: 30px 40px;
         }
 
@@ -54,13 +55,13 @@
             padding: 12px 15px;
             border-left: 5px solid #3498db;
             border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         li:hover {
             transform: scale(1.02);
-            box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* ---------- Image Section ---------- */
@@ -69,7 +70,7 @@
             margin: 25px auto;
             max-width: 90%;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
 
         /* ---------- Link/Button ---------- */
@@ -98,40 +99,46 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
-        <h1>🌱 My Learning Journey</h1>
+        <h1> My Learning Journey</h1>
 
         <p>
-            This semester, I explored the <strong>Django Web Framework</strong> and learned how to 
-            build dynamic web applications using the <strong>MVT (Model–View–Template)</strong> architecture. 
-            It helped me understand how to connect databases, create models, and design interactive web pages.
+
+            This semester, I explored the Django Web Framework and learned how to build dynamic web applications
+            using the MVT (Model–View–Template) architecture. Along with Django, I also worked with HTML for
+            structuring web pages, CSS for styling and layout, and JavaScript for adding interactivity and
+            client-side functionality. These technologies together helped me understand how to connect databases, create
+            models, design responsive web pages, and develop complete, interactive web applications.
+
         </p>
 
         <h2>My Activities</h2>
         <ul>
             {% for activity in activities %}
-                <li>
-                    <strong>{{ activity.lab_title }}</strong> — {{ activity.description }}
-                    <br><em>Completed on {{ activity.completion_date }}</em>
-                </li>
+            <li>
+                <strong>{{ activity.lab_title }}</strong> — {{ activity.description }}
+                <br><em>Completed on {{ activity.completion_date }}</em>
+            </li>
             {% empty %}
-                <li>No activities added yet.</li>
+            <li>No activities added yet.</li>
             {% endfor %}
         </ul>
 
         <h2>Screenshots from Admin Panel</h2>
-        <img src="/static/images/admin_screenshot.png" alt="Admin Panel Screenshot">
+        <img src="/static/images/Admin.png" alt="Admin Panel Screenshot">
 
         <div style="text-align: center; margin-top: 20px;">
             <a href="{% url 'aboutMe' %}">💬 About Me</a>
         </div>
 
         <footer>
-            <p>© 2025 My Django Journey | Designed with 💙 using HTML & CSS</p>
+            <p>© 2025 My Learning Journey | Designed by Tandin Wangmo</p>
         </footer>
     </div>
 
 </body>
+
 </html>
