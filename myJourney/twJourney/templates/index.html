@@ -1,46 +1,137 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>My Learning Journey</title>
     <style>
+        /* ---------- Overall Page Style ---------- */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            padding: 20px;
+            font-family: "Poppins", Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #e0eafc, #cfdef3);
+            color: #2c3e50;
         }
-        h1, h2 { color: #2c3e50; }
+
+        /* ---------- Container ---------- */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            padding: 30px 40px;
+        }
+
+        /* ---------- Headings ---------- */
+        h1 {
+            text-align: center;
+            color: #1a5276;
+            font-size: 2.2em;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            color: #2e86c1;
+            border-left: 5px solid #2e86c1;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        /* ---------- Paragraphs & Lists ---------- */
+        p {
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #f7fbff;
+            margin: 10px 0;
+            padding: 12px 15px;
+            border-left: 5px solid #3498db;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        li:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+        }
+
+        /* ---------- Image Section ---------- */
+        img {
+            display: block;
+            margin: 25px auto;
+            max-width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        /* ---------- Link/Button ---------- */
         a {
-            text-decoration: none;
+            display: inline-block;
             background: #2980b9;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
-        a:hover { background: #1c5980; }
+
+        a:hover {
+            background: #1f5d89;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- Footer ---------- */
+        footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
 
-    <h1> My Learning Journey</h1>
+    <div class="container">
+        <h1>🌱 My Learning Journey</h1>
 
-    <p>This semester, I explored Django web framework and learned how to create dynamic web applications using MVT architecture.</p>
+        <p>
+            This semester, I explored the <strong>Django Web Framework</strong> and learned how to 
+            build dynamic web applications using the <strong>MVT (Model–View–Template)</strong> architecture. 
+            It helped me understand how to connect databases, create models, and design interactive web pages.
+        </p>
 
-    <h2>My Activities</h2>
-    <ul>
-        {% for activity in activities %}
-            <li>
-                <strong>{{ activity.lab_title }}</strong>: {{ activity.description }}
-                (Completed on {{ activity.completion_date }})
-            </li>
-        {% empty %}
-            <li>No activities added yet.</li>
-        {% endfor %}
-    </ul>
+        <h2>My Activities</h2>
+        <ul>
+            {% for activity in activities %}
+                <li>
+                    <strong>{{ activity.lab_title }}</strong> — {{ activity.description }}
+                    <br><em>Completed on {{ activity.completion_date }}</em>
+                </li>
+            {% empty %}
+                <li>No activities added yet.</li>
+            {% endfor %}
+        </ul>
 
-    <h2>Screenshots from Admin Panel</h2>
-    <img src="/static/images/admin_screenshot.png" alt="Admin Panel Screenshot">
+        <h2>Screenshots from Admin Panel</h2>
+        <img src="/static/images/admin_screenshot.png" alt="Admin Panel Screenshot">
 
-    <p><a href="{% url 'aboutMe' %}">About Me</a></p>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{% url 'aboutMe' %}">💬 About Me</a>
+        </div>
+
+        <footer>
+            <p>© 2025 My Django Journey | Designed with 💙 using HTML & CSS</p>
+        </footer>
+    </div>
 
 </body>
 </html>
